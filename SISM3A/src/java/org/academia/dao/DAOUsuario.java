@@ -33,10 +33,30 @@ public class DAOUsuario {
             //el siguiente parametro del procedimeinto almacenado es el nombre
             
              call.registerOutParameter(1, Types.INTEGER);
-             call.setInt(2, oSalon.getCodigoTutor());
+             call.setString(2, oUsuario.getUsuario());
+             call.setString(3, oUsuario.getContrasenia());
+             call.setBoolean(4, oUsuario.isEstado());
+             // ejecutamos  la sentencia y si nos devuelven el valor 
+             //de 1 es porque el registro de forma correcta los datos
+             rpta=call.executeUpdate()==1?true:false;
+             if (rpta) {
+                //confirmamos la transaccion
+                 cn.commit();
+            }else{
+             //negamos la insercion
+                 DSConexion.rollBack(cn);
+             }
+             DSConexion.closeCall(call);
+             DSConexion.closeConnection(cn);
             
         } catch (Exception e) {
+            e.printStackTrace();
+            DSConexion.rollBack(cn);
+            DSConexion.closeCall(call);
+            DSConexion.closeConnection(cn);
         }
+        
+        return rpta;
     }
     
 }
