@@ -27,6 +27,7 @@ public class DSConexion {
       }
       catch (Exception e) {
            cn=null;
+           System.out.println("Error de conexion");
 
     }
       return cn;
