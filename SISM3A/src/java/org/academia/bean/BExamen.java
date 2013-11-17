@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author ABEL-LP
  */
-public class Examen {
+public class BExamen {
     private int idExamen;
     private String tipoExamen;
     private Date fecha;
