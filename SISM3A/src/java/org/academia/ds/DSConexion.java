@@ -4,8 +4,10 @@
  */
 package org.academia.ds;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 /**
  *
@@ -32,5 +34,38 @@ public class DSConexion {
     }
       return cn;
   }
+  
+   public synchronized void closeConnection(Connection connection){
+        try {
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error al cerrar conexion"+e);
+        }
+    }
+   
+    public synchronized void closeCall(CallableStatement call){
+        try {
+            call.close();
+        } catch (Exception e) {
+            System.out.println("Error al cerrar call"+e);
+        }
+    }
+    
+     public synchronized void closeResultset(ResultSet rs){
+        try {
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cerrar resultset"+e);
+        }
+     }
+     
+         public synchronized void rollBack(Connection cn){
+        try {
+            cn.rollback();
+        } catch (Exception e) {
+            System.out.println("Error al hacer rollback"+e);
+        }
+    }
+        
     
 }
