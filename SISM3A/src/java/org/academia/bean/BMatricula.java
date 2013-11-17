@@ -10,7 +10,7 @@ import java.sql.Date;
  *
  * @author ABEL-LP
  */
-public class Matricula {
+public class BMatricula {
     private int idAlumno;
     private int idCiclo;
     private int idSecretario;

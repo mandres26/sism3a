@@ -10,7 +10,7 @@ import java.sql.Date;
  *
  * @author davis
  */
-public class Salon_Tutor {
+public class BSalon_Tutor {
     private int idSalon;
     private int idTutor;
     private Date fechaAsignacion;
