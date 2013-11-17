@@ -8,7 +8,7 @@ package org.academia.bean;
  *
  * @author davis
  */
-public class Usuario {
+public class BUsuario {
     private int idUsuario; 
     private String usuario; 
     private String contrasenia; 

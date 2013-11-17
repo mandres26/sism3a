@@ -8,7 +8,7 @@ package org.academia.bean;
  *
  * @author davis
  */
-public class Telefono {
+public class BTelefono {
     private int idTelefono;
     private int idTitular;
     private int tipoTelefono;

@@ -9,7 +9,7 @@ package org.academia.bean;
  *
  * @author ABEL-LP
  */
-public class Tutor {
+public class BTutor {
     private int idTutor;
     private String dni;
     private String nombre;

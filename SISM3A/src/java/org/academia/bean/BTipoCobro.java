@@ -8,7 +8,7 @@ package org.academia.bean;
  *
  * @author davis
  */
-public class TipoCobro {
+public class BTipoCobro {
     private int idTipoCobro;
     private String denominacion;
     private double monto;

@@ -8,7 +8,7 @@ package org.academia.bean;
  *
  * @author davis
  */
-public class Secretario {
+public class BSecretario {
     private int idSecretario;
     private int idUsuario;
     private String dni;
