@@ -11,7 +11,7 @@ package org.academia.bean;
 public class BTelefono {
     private int idTelefono;
     private int idTitular;
-    private int tipoTelefono;
+    private String tipoTelefono;
     private String numero;
     private boolean estado;
 
@@ -31,14 +31,6 @@ public class BTelefono {
         this.idTitular = idTitular;
     }
 
-    public int getTipoTelefono() {
-        return tipoTelefono;
-    }
-
-    public void setTipoTelefono(int tipoTelefono) {
-        this.tipoTelefono = tipoTelefono;
-    }
-
     public String getNumero() {
         return numero;
     }
@@ -53,5 +45,13 @@ public class BTelefono {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public String getTipoTelefono() {
+        return tipoTelefono;
+    }
+
+    public void setTipoTelefono(String tipoTelefono) {
+        this.tipoTelefono = tipoTelefono;
     }
 }
