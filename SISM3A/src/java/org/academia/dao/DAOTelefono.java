@@ -21,7 +21,7 @@ public class DAOTelefono {
         CallableStatement call = null;
         Connection cn=null;
         try {
-            String sql="{CALL insertarCobro(?,?,?,?) }";
+            String sql="{CALL insertarTelefono(?,?,?,?,?) }";
             
             cn = new DSConexion().getConectar();
             call=cn.prepareCall(sql);
@@ -30,7 +30,7 @@ public class DAOTelefono {
             call.setInt(2, oBTelefono.getIdTitular());
             call.setString(3, oBTelefono.getTipoTelefono());
             call.setString(4, oBTelefono.getNumero());
-            call.setBoolean(4, oBTelefono.isEstado());
+            call.setBoolean(5, oBTelefono.isEstado());
             
              call.executeUpdate();
             //recuperamos el codigoCobro            
@@ -38,9 +38,8 @@ public class DAOTelefono {
             return true;
             
         } catch (Exception e) {
-            System.out.println("Error en insertar cobro "+e);
+            System.out.println("Error en insertar Telefono; "+e);
             return false;
-        }
-    
+        }    
     }
 }
