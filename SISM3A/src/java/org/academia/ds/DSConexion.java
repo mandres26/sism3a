@@ -15,7 +15,7 @@ import java.sql.ResultSet;
  */
 public class DSConexion {
    private static  String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-   private static  String url="jdbc:sqlserver://ALONE\\local:1433;databaseName=BD.SISM3A";
+   private static  String url="jdbc:sqlserver://DAVIS-PC\\local:1433;databaseName=SISM3A";
    private static  String user="sa";
    private static  String password="123456";
     

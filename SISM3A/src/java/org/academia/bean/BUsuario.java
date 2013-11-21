@@ -13,6 +13,7 @@ public class BUsuario {
     private String usuario; 
     private String contrasenia; 
     private boolean estado ;
+    private int existe = 0;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -44,6 +45,14 @@ public class BUsuario {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public int getExiste() {
+        return existe;
+    }
+
+    public void setExiste(int existe) {
+        this.existe = existe;
     }
 
 }

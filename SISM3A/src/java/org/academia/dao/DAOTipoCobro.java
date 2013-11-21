@@ -6,19 +6,16 @@ package org.academia.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Types;
-import org.academia.bean.BUsuario;
+import org.academia.bean.BTipoCobro;
 import org.academia.ds.DSConexion;
 
 /**
  *
  * @author davis
  */
-public class DAOUsuario {
-
-    public static synchronized boolean crearUsario(BUsuario oUsuario) {
+public class DAOTipoCobro {
+        public static synchronized boolean registrarTipoCobro(BTipoCobro oTipoCobro) {
         Connection cn = null;
         CallableStatement call = null;
         boolean rpta = false;
@@ -36,9 +33,8 @@ public class DAOUsuario {
             //el siguiente parametro del procedimeinto almacenado es el nombre
 
             call.registerOutParameter(1, Types.INTEGER);
-            call.setString(2, oUsuario.getUsuario());
-            call.setString(3, oUsuario.getContrasenia());
-            call.setBoolean(4, oUsuario.isEstado());
+            call.setString(2, oTipoCobro.getDenominacion());
+            call.setDouble(3, oTipoCobro.getMonto());
             // ejecutamos  la sentencia y si nos devuelven el valor 
             //de 1 es porque el registro de forma correcta los datos
             rpta = call.executeUpdate() == 1 ? true : false;
@@ -61,31 +57,5 @@ public class DAOUsuario {
 
         return rpta;
     }
-
-    public synchronized void autentificarUsuario(BUsuario oUsuario) {
-        Connection cn = null;
-        CallableStatement call = null;
-        ResultSet rs = null;
-        String pw = null;
-        try {
-            String sql = "{ CALL autentificarUsuario(?)}";
-            cn = new DSConexion().getConectar();
-            call = cn.prepareCall(sql);
-            call.setString(1, oUsuario.getUsuario());
-            rs = call.executeQuery();
-
-            while (rs.next()) {
-                pw = rs.getString("contrasenia");
-               if (oUsuario.getContrasenia().equals(pw)) {
-                    oUsuario.setExiste(1);
-                } else {
-                    oUsuario.setExiste(0);
-                }
-            }
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-
-
-    }
+    
 }
