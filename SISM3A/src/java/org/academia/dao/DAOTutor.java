@@ -62,4 +62,22 @@ public class DAOTutor {
             return false;
         }    
     }
+    public synchronized boolean desHabilitarTutor(BTutor oBTutor){
+        CallableStatement call = null;
+        Connection cn=null;
+        try {
+            String sql="{CALL ps_Tutor_desHabilitarTutor(?)}";
+            
+           cn = new DSConexion().getConectar();
+            call = cn.prepareCall(sql);
+
+            call.setInt(1, oBTutor.getIdTutor());
+
+            call.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al desHabilitar Tutor: "+e);
+            return false;
+        }    
+    }
 }
