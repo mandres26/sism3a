@@ -12,6 +12,7 @@ public class BTipoCobro {
     private int idTipoCobro;
     private String denominacion;
     private double monto;
+    private int idCiclo;
 
     public int getIdTipoCobro() {
         return idTipoCobro;
@@ -35,5 +36,13 @@ public class BTipoCobro {
 
     public void setMonto(double monto) {
         this.monto = monto;
+    }
+
+    public int getIdCiclo() {
+        return idCiclo;
+    }
+
+    public void setIdCiclo(int idCiclo) {
+        this.idCiclo = idCiclo;
     }
 }
