@@ -39,7 +39,7 @@ select {
     overflow: hidden;
 }
 
-#divEstilo {
+.divEstilo {
     -webkit-border-radius: 5px;
     border-radius: 5px; 
     background-color: #9ec9f5;
