@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 function RegistrarTutor() {
-    alert("hola");
+
     $(document).ready(function() {
         jQuery.validator.setDefaults({
             debug: true,
@@ -46,7 +46,7 @@ function RegistrarTutor() {
             }
         });
         if ($('#registrarTutorForm').valid()) {
-
+            confirm("Esta Seguro Registrar Nuevo Tutor");
 
             var oTutor = new Object();
             oTutor.nombre = $("#txtNombreT").val();
@@ -55,7 +55,7 @@ function RegistrarTutor() {
             oTutor.dni = $("#txtDni").val();
             oTutor.direccion = $("#txtDireccion").val();
             oTutor.telefono = $("#txtTelefono").val();
-            alert("otraves hola");
+
             var sendData = JSON.stringify(oTutor);
             alert(sendData);
             $.ajax({
@@ -76,7 +76,7 @@ function RegistrarTutor() {
 }
 function prueba() {
     //jAlert("Actualidad jQuery", "Actualidad jQuery");
-    
+
     jConfirm("¿Te gusta Actualidad jQuery?", "Actualidad jQuery", function(r) {
         if (r) {
             jAlert("Te gusta Actualidad jQuery", "Actualidad jQuery");
@@ -84,8 +84,8 @@ function prueba() {
             jAlert("No te gusta Actualidad jQuery", "Actualidad jQuery");
         }
     });
-    
-    
+
+
 }
 
 function listarTutor() {

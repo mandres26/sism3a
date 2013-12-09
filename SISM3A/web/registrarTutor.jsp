@@ -17,8 +17,8 @@
         <script type="text/javascript" src="js/jquery.bassistance.de_validate_jquery.validate.js"></script>
 
         <script type="text/javascript" src="jquery.alerts-1.1/jquery.alerts.js"></script>  
-        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>  
-        <link href="jquery.alerts-1.1/jquery.alerts.css" rel="stylesheet" type="text/css" />
+        <link  rel="stylesheet" type="text/css" href="jquery.alerts-1.1/jquery.alerts.css" />
+        
 
     </head>
     <body>
