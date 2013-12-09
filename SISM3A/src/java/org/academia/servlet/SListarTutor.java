@@ -25,8 +25,8 @@ import org.json.JSONObject;
  *
  * @author ABEL-LP
  */
-@WebServlet(name = "SRegistrarTutor", urlPatterns = {"/SRegistrarTutor"})
-public class SRegistrarTutor extends HttpServlet {
+@WebServlet(name = "SListarTutor", urlPatterns = {"/SListarTutor"})
+public class SListarTutor extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class SRegistrarTutor extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public SRegistrarTutor() {
+    public SListarTutor() {
         super();
     }
 
@@ -52,10 +52,10 @@ public class SRegistrarTutor extends HttpServlet {
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet SRegistrarTutor</title>");            
+//            out.println("<title>Servlet SListarTutor</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet SRegistrarTutor at " + request.getContextPath() + "</h1>");
+//            out.println("<h1>Servlet SListarTutor at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
         } finally {
@@ -75,11 +75,38 @@ public class SRegistrarTutor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+//        String g = request.getParameter("ids");
+//
+//        BTutor oBTutor = new BTutor();
+//        oBTutor.setIdTutor(Integer.parseInt(g));
+//        oBTutor.setIdTutor(Integer.parseInt(g));
+//        ArrayList<String> array = new DAOTutor().detalleTutor(oBTutor);
+//        String arraystring = "{\"direccion\":\""+ array.get(0) +"\", \"estado\":" + array.get(1) + ", \"numero\":\"" + array.get(2) + "\", \"denominacion\": \"" + array.get(3) + "\"}";
+//        String json1 = new Gson().toJson(arraystring);
+//        response.setContentType("application/json");
+//        response.setCharacterEncoding("utf-8");
+//        response.getWriter().write(arraystring);
+        StringBuffer jb = new StringBuffer();
+        String line = null;
+        try {
+            BufferedReader reader = request.getReader();
+        while ((line = reader.readLine()) != null) {
+            jb.append(line);
+
+        }
+        String datt = String.valueOf(jb.toString());
+
+            JSONObject jsonObj = new JSONObject(datt);
+
+            BTutor oTutor = new BTutor();
+            String value = (String) jsonObj.get("idTutor") ;
+            
+            oTutor.setIdTutor(Integer.parseInt(value));
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
-        String json1 = new Gson().toJson(new DAOTutor().listarTutor());
-        response.setContentType("application/json");
-        response.setCharacterEncoding("utf-8");
-        response.getWriter().write(json1);
     }
 
     /**
@@ -93,68 +120,7 @@ public class SRegistrarTutor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        StringBuffer jb = new StringBuffer();
-        String line = null;
-        try {
-            BufferedReader reader = request.getReader();
-            while ((line = reader.readLine()) != null) {
-                jb.append(line);
-            }
-            //System.out.println(jb.toString());
-            String datt = String.valueOf(jb.toString());
-
-            JSONObject jsonObj = new JSONObject(datt);
-
-            BTutor oTutor = new BTutor();
-            String value = (String) jsonObj.get("nombre");
-            oTutor.setNombre(value);
-
-            value = (String) jsonObj.get("apellidoPaterno");
-            oTutor.setApellidoPaterno(value);
-
-            value = (String) jsonObj.get("apellidoMaterno");
-            oTutor.setApellidoMaterno(value);
-
-            value = (String) jsonObj.get("dni");
-            oTutor.setDni(value);
-
-            value = (String) jsonObj.get("direccion");
-            oTutor.setDireccion(value);
-
-            //Valores por defecto
-            oTutor.setEstado(true);
-            oTutor.setIdTutor(1);//no interesa el numero de id
-            
-            int idTutor = new DAOTutor().registrarTutor(oTutor);
-            
-            BTelefono oBTelefono = new BTelefono();
-            
-            value = (String) jsonObj.get("telefono");
-            oBTelefono.setNumero(value);
-            //valores predetemindas
-            oBTelefono.setIdTelefono(1);
-            oBTelefono.setIdTitular(idTutor);
-            oBTelefono.setTipoTelefono("Claro");
-            oBTelefono.setEstado(true);
-            
-            boolean flag=new DAOTelefono().insertarTelefono(oBTelefono);
-            
-            if ((idTutor!=0)&& flag==true) {
-                String json1 = new Gson().toJson("Tutor Registrado!");
-                response.setContentType("application/json");
-                response.setCharacterEncoding("utf-8");
-                response.getWriter().write(json1);
-            } else {
-                String json1 = new Gson().toJson("Error al registrar Tutor");
-                response.setContentType("application/json");
-                response.setCharacterEncoding("utf-8");
-                response.getWriter().write(json1);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        processRequest(request, response);
     }
 
     /**
