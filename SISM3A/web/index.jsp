@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-        <title>untitled</title>
+        <title>Academia Auno</title>
         <link rel="stylesheet" href="css/styleMenu.css" type="text/css" />
         <!--[if lt IE 8]>
                 <script src ="http://ie7-js.googlecode.com/svn/version/2.1(beta2)/IE8.js"></script>
@@ -59,7 +59,7 @@
                     <li><a href="#" onclick="ref('registrarTutor.jsp');"  title="Tutores">Tutores</a>
                         <ul>
                             <li><a href="#" onclick="ref('registrarTutor.jsp');"  title="Tutores">Nuevo Tutor</a></li>
-                            <li><a href="#">Listar Tutor</a></li>
+                            <li><a href="#" onclick="ref('listarTutor.jsp');" title="Listar Tutor">Listar Tutor</a></li>
                             <li><a href="#">Modificar Tutor</a></li>						
                         </ul>
                     </li>

@@ -18,44 +18,46 @@
 
         <script type="text/javascript" src="jquery.alerts-1.1/jquery.alerts.js"></script>  
         <link  rel="stylesheet" type="text/css" href="jquery.alerts-1.1/jquery.alerts.css" />
-        
+
 
     </head>
     <body>
         <div class="contenido">
-            <h2>REGISTRAR TUTOR</h2>
-            <form id="registrarTutorForm" method="POST" action="SRegistrarTutor">
-                <table>
-                    <tr>
-                        <td>Nombres :</td>
-                        <td><input id="txtNombreT" name="txtNombreT" type="text"/></td>
-                    </tr>
-                    <tr>
-                        <td>Apellido Paterno:</td>
-                        <td><input id="txtApellidoP" name="txtApellidoP" type="text"/></td>
-                    </tr>
-                    <tr>
-                        <td>Apellido Materno:</td>
-                        <td><input id="txtApellidoM" name="txtApellidoM" type="text"/></td>
-                    </tr>
-                    <tr>
-                        <td>Dni :</td>
-                        <td><input id="txtDni" name="txtDni" type="text"/></td>
-                    </tr>
-                    <tr>
-                        <td>Direccion :</td>
-                        <td><input id="txtDireccion" name="txtDireccion" type="text"/></td>
-                    </tr>
-                    <tr>
-                        <td>Telefono / cell :</td>
-                        <td><input id="txtTelefono" name="txtTelefono" type="text"/></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="button" value="Registrar" onclick="RegistrarTutor()"/></td>
-                    </tr>
-                </table>                
-            </form>
+            <center>
+                <h2>REGISTRAR TUTOR</h2>
+                <form id="registrarTutorForm" method="POST" action="SRegistrarTutor">
+                    <table>
+                        <tr>
+                            <td>Nombres :</td>
+                            <td><input id="txtNombreT" name="txtNombreT" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Apellido Paterno:</td>
+                            <td><input id="txtApellidoP" name="txtApellidoP" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Apellido Materno:</td>
+                            <td><input id="txtApellidoM" name="txtApellidoM" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Dni :</td>
+                            <td><input id="txtDni" name="txtDni" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Direccion :</td>
+                            <td><input id="txtDireccion" name="txtDireccion" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>Telefono / cell :</td>
+                            <td><input id="txtTelefono" name="txtTelefono" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="button" value="Registrar" onclick="RegistrarTutor()"/></td>
+                        </tr>
+                    </table>                
+                </form>
+            </center>
         </div>
     </body>
 </html>
