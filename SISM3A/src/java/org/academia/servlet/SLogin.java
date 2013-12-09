@@ -45,7 +45,7 @@ public class SLogin extends HttpServlet {
 
             new DAOUsuario().autentificarUsuario(oBUsuario);
             if (oBUsuario.getExiste() == 1) {
-                request.getRequestDispatcher("registrarExamen.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("Mensaje.jsp").forward(request, response);
             }

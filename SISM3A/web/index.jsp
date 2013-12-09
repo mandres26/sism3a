@@ -25,7 +25,7 @@
         <script type="text/javascript" src="js/funcionesGenerales.js"></script>
     </head>
     <body>
-        <div style="text-align: center;border: 1px solid #20911e;width: 650px; height:55px ; margin:0 auto 0 auto;">
+        <div style="text-align: center;border: 1px solid #20911e;width: 700px; height:55px ; margin:0 auto 0 auto;">
             <center>
                 <ul id="nav">
                     <li><a href="#" onclick=""  title="Inicio">Inicio</a></li>
@@ -56,11 +56,21 @@
                             <li><a href="#">American Offices</a></li>						
                         </ul>
                     </li>	
-                    <li><a href="#" onclick="ref('registrarTutor.jsp');"  title="Tutores">Tutores</a>
+                    <li><a href="#" onclick="ref('');"  title="Tutores">Personal</a>
                         <ul>
-                            <li><a href="#" onclick="ref('registrarTutor.jsp');"  title="Tutores">Nuevo Tutor</a></li>
-                            <li><a href="#" onclick="ref('listarTutor.jsp');" title="Listar Tutor">Listar Tutor</a></li>
-                            <li><a href="#">Modificar Tutor</a></li>						
+                            <li><a href="#"  title="Tutores">Tutor</a>
+                                <ul>
+                                    <li><a href="#" onclick="ref('registrarTutor.jsp');"  title="nuevo">Nuevo Tutor</a></li>
+                                    <li><a href="#" onclick="ref('listarTutor.jsp');"  title="Listar">Lista Tutor</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" onclick="ref('');" title="Listar Tutor">Secretario</a>
+                                <ul>
+                                    <li><a href="#" onclick="ref('crearSecretario.jsp');"  title="nuevo">Nuevo Secretario</a></li>
+                                    <li><a href="#" onclick="ref('');"  title="Listar">Lista Tutor</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" onclick="ref('.jsp');" title="Listar Tutor">Coordinador</a></li>
                         </ul>
                     </li>
                 </ul>
