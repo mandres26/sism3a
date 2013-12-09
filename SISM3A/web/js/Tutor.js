@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 function RegistrarTutor() {
+    alert("hola");
     $(document).ready(function() {
         jQuery.validator.setDefaults({
             debug: true,
