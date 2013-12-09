@@ -23,7 +23,7 @@ public class DAOTipoCobro {
         try {
             //nombre del procedimiento almacenado y como espera parametros
             // le ponemos los parametros
-            String sql = "{CALL ps_usuario_crear(?,?,?,?)}";
+            String sql = "{CALL ps_registrar_tipo_cobro(?,?,?)}";
             //obtenemos la conexion
             cn = DSConexion.getConectar();
             //decidimos que vamos a crear un usuario

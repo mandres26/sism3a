@@ -35,13 +35,6 @@ public class DSConexion {
       return cn;
   }
 
-//    public static void rollBack(Connection cn) {
-//        try {
-//            cn.rollback();
-//        } catch (Exception e) {
-//            System.out.println("Error al hacer rollback"+e);
-//        }
-//    }
   //metodo utilizado para cerrar la conexion
    public static synchronized void closeConnection(Connection connection){
         try {
