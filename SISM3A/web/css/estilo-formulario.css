@@ -1,0 +1,49 @@
+input[type=text]
+{
+    font-family: Arial; 
+    font-size: 8pt; 
+    background-color: #e4f0fc;
+    border:solid 1px #BFBDBD;
+    color: #576f87;
+    height: 15px;
+    padding-left:10px;
+    box-shadow: 2px 2px 0 #828181 inset;
+}
+/*button
+{
+    background-color: #1E1E1E;
+    color: #979797;
+    height: 24px;
+    width: 103px;
+    color: #bbbbbb;
+    text-transform:uppercase;
+    box-shadow:-1px 2px #6E6B6A inset;
+}*/
+
+label {
+    color: #2b312b;
+    font-weight: bold;
+    display: block;
+    width: 150px;
+    font-size: 7pt; 
+}
+
+select {
+    /*position: absolute;*/
+    /*width: 158px;*/
+    height: 20px;
+    /*padding: 0 20px 0 8px;*/
+    color: #fff;
+    font: 12px/21px arial,sans-serif;
+    background: #fff;
+    overflow: hidden;
+}
+
+#divEstilo {
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    background-color: #9ec9f5;
+    border-style: double; 
+    border-width: 4px;
+    border-color: #fff;
+}
