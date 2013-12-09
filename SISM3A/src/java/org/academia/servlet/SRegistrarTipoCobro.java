@@ -4,6 +4,8 @@
  */
 package org.academia.servlet;
 
+import com.google.gson.Gson;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.ParseConversionEvent;
 import org.academia.bean.BTipoCobro;
 import org.academia.dao.DAOTipoCobro;
+import org.json.JSONObject;
 
 /**
  *
@@ -23,9 +26,8 @@ import org.academia.dao.DAOTipoCobro;
 public class SRegistrarTipoCobro extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -50,18 +52,16 @@ public class SRegistrarTipoCobro extends HttpServlet {
 //            out.close();
 //        }
 
-        String accion = request.getParameter("accion");
-        if (accion.equals("RegistrarTipoCobro")) {
-            this.registrarTipoCobro(request, response);
-        } else if (accion.equals("ModificarTipoCobro")) {
-        }
-
+//        String accion = request.getParameter("accion");
+//        if (accion.equals("RegistrarTipoCobro")) {
+//            this.registrarTipoCobro(request, response);
+//        } else if (accion.equals("ModificarTipoCobro")) {
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -69,26 +69,14 @@ public class SRegistrarTipoCobro extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
 //    @Override
-    protected void registrarTipoCobro(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
-        BTipoCobro oBTipoCobro = new BTipoCobro();
-        oBTipoCobro.setDenominacion(request.getParameter("txtDenominacion"));
-        oBTipoCobro.setMonto(Double.parseDouble(request.getParameter("txtMonto")));
 
-        boolean rpta= DAOTipoCobro.registrarTipoCobro(oBTipoCobro);
-        if (rpta) {
-            response.sendRedirect("registrarCicloAcademico.jsp");
-        }
-        else{
-            response.sendRedirect("Mensaje.jsp?men=no se registro el tipo cobro");
-                    
-        }
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -99,6 +87,47 @@ public class SRegistrarTipoCobro extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        StringBuffer jb = new StringBuffer();
+        String line = null;
+        try {
+            BufferedReader reader = request.getReader();
+            while ((line = reader.readLine()) != null) {
+                jb.append(line);
+            }
+
+            String datt = String.valueOf(jb.toString());
+
+            JSONObject jsonObj = new JSONObject(datt);
+
+            BTipoCobro oBTipoCobro = new BTipoCobro();
+            String value;
+
+            value = (String) jsonObj.get("idCiclo");
+            oBTipoCobro.setIdCiclo(Integer.parseInt(value));
+
+            value = (String) jsonObj.get("denominacion");
+            oBTipoCobro.setDenominacion(value);
+
+            value = (String) jsonObj.get("monto");
+            oBTipoCobro.setMonto(Double.parseDouble(value));
+
+            boolean flag = new DAOTipoCobro().registrarTipoCobro(oBTipoCobro);
+            if (flag == true) {
+                String json1 = new Gson().toJson("Tipo cobro registrado!");
+                response.setContentType("application/json");
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().write(json1);
+
+            } else {
+                String json1 = new Gson().toJson("Error al registrar tipo cobro");
+                response.setContentType("application/json");
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().write(json1);
+            }
+
+        } catch (Exception e) {
+        }
+
     }
 
     /**
