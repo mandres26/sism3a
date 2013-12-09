@@ -12,7 +12,6 @@ import java.sql.Date;
  */
 public class BCicloAcademico {
     private int idCiclo;
-    private int idTipoCobro;
     private String tipoCiclo;
     private Date fechaInicio;
     private Date fechaFin ;
@@ -26,13 +25,6 @@ public class BCicloAcademico {
         this.idCiclo = idCiclo;
     }
 
-    public int getIdTipoCobro() {
-        return idTipoCobro;
-    }
-
-    public void setIdTipoCobro(int idTipoCobro) {
-        this.idTipoCobro = idTipoCobro;
-    }
 
     public String getTipoCiclo() {
         return tipoCiclo;
