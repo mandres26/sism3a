@@ -23,7 +23,7 @@ public class DAOTipoCobro {
         try {
             //nombre del procedimiento almacenado y como espera parametros
             // le ponemos los parametros
-            String sql = "{CALL ps_registrar_tipo_cobro(?,?,?)}";
+            String sql = "{CALL ps_registrar_tipo_cobro(?,?,?,?)}";
             //obtenemos la conexion
             cn = DSConexion.getConectar();
             //decidimos que vamos a crear un usuario
@@ -35,6 +35,7 @@ public class DAOTipoCobro {
             call.registerOutParameter(1, Types.INTEGER);
             call.setString(2, oTipoCobro.getDenominacion());
             call.setDouble(3, oTipoCobro.getMonto());
+            call.setInt(4, oTipoCobro.getIdCiclo());
             // ejecutamos  la sentencia y si nos devuelven el valor 
             //de 1 es porque el registro de forma correcta los datos
             rpta = call.executeUpdate() == 1 ? true : false;
