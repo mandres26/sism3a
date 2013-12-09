@@ -89,7 +89,7 @@ function prueba() {
 }
 
 function listarTutor() {
-    var id;
+    
     alert("Cargando Datos....");
     $.ajax({
         type: "GET",

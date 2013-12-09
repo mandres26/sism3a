@@ -31,7 +31,7 @@
                     <li><a href="#" onclick=""  title="Inicio">Inicio</a></li>
                     <li><a href="#" onclick="ref('jsp');"  title="Matricula">Matricula</a>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="#" onclick="ref('.jsp');"  title="Matricular">Matricular</a></li>
                             <li><a href="#">About Them</a></li>
                             <li><a href="#">About You</a>
                                 <ul>
