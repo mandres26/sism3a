@@ -6,7 +6,10 @@ package org.academia.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Types;
+import java.util.ArrayList;
+import org.academia.bean.BCicloAcademico;
 import org.academia.bean.BTipoCobro;
 import org.academia.ds.DSConexion;
 
@@ -15,7 +18,8 @@ import org.academia.ds.DSConexion;
  * @author davis
  */
 public class DAOTipoCobro {
-        public static synchronized boolean registrarTipoCobro(BTipoCobro oTipoCobro) {
+
+    public static synchronized boolean registrarTipoCobro(BTipoCobro oTipoCobro) {
         Connection cn = null;
         CallableStatement call = null;
         boolean rpta = false;
@@ -58,5 +62,36 @@ public class DAOTipoCobro {
 
         return rpta;
     }
-    
+
+    public synchronized ArrayList<BTipoCobro> listarTipoCobro() {
+        Connection cn = null;
+        CallableStatement call = null;
+        ResultSet rs = null;
+
+        try {
+            String sql = "{CALL listarTipoCobro()}";
+
+            cn = new DSConexion().getConectar();
+            call = cn.prepareCall(sql);
+            rs = call.executeQuery();
+
+            ArrayList<BTipoCobro> lstBTipoCobros = new ArrayList<BTipoCobro>();
+            while (rs.next()) {
+                BTipoCobro oBTipoCobro = new BTipoCobro();
+                
+                oBTipoCobro.setIdTipoCobro(rs.getInt(1));
+                oBTipoCobro.setDenominacion(rs.getString(2));
+                oBTipoCobro.setMonto(rs.getDouble(3));
+                oBTipoCobro.setIdCiclo(rs.getInt(4));
+                
+                lstBTipoCobros.add(oBTipoCobro);
+            }
+
+            return lstBTipoCobros;
+
+        } catch (Exception e) {
+            System.out.println("Error en listar ciclo Academico" + e);
+            return null;
+        }
+    }
 }
