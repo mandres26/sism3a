@@ -20,6 +20,7 @@
     <body>
         <div class="contenido">
             <center>
+                <form id="crearSalonForm">
                 <table>
                     <tr>
                         <td>nombre Salon :</td>
@@ -28,18 +29,24 @@
                     </tr>
                     <tr>
                         <td>Capacidad Max:</td>
-                        <td><input id="txtApellidoP" name="txtApellidoP" type="text"/></td>
+                        <td><input id="txtcapacidadSalon" name="txtcapacidadSalon" type="text"/></td>
                     </tr>
                     <tr>
                         <td>Tutor a Cargo:</td>
                         <td>
-                            <select id="listTutor">
-                                <option>-seleccione un tutor</option>
+                            <select id="listTutor" name="listTutor">
+                                <option value="">-seleccione un tutor</option>
                             </select>
+                            <input type="button" value="Cargar Lista" onclick="listarTutorSalon()"/>
                         </td>
                     </tr>
-                    <input type="button" value="Hola" onclick="listarTutorSalon()"/>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="Guardar" onclick="crearSalon()"/></td>
+                    </tr>
+                    
                 </table> 
+                    </form>
             </center>
         </div>
     </body>
