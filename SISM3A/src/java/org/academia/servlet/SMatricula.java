@@ -6,6 +6,7 @@
 package org.academia.servlet;
 
 import com.google.gson.Gson;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,9 +14,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.academia.bean.BAlumno;
+import org.academia.bean.BMatricula;
+import org.academia.bean.BSalon;
+import org.academia.bean.BSalon_Tutor;
+import org.academia.dao.DAOAlumno;
 import org.academia.dao.DAOCicloAcademico;
+import org.academia.dao.DAOMatricula;
+import org.academia.dao.DAOSalon;
+import org.academia.dao.DAOSalon_Tutor;
 import org.academia.dao.DAOTipoCobro;
 import org.academia.dao.DAOTutor;
+import org.json.JSONObject;
 
 /**
  *
@@ -89,7 +99,71 @@ public class SMatricula extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        StringBuffer jb = new StringBuffer();
+        String line = null;
+        try {
+            BufferedReader reader = request.getReader();
+            while ((line = reader.readLine()) != null) {
+                jb.append(line);
+            }
+            //System.out.println(jb.toString());
+            String datt = String.valueOf(jb.toString());
+
+            JSONObject jsonObj = new JSONObject(datt);
+
+            BAlumno oBAlumno = new BAlumno();
+            String value = (String) jsonObj.get("nombre");
+            oBAlumno.setNombre(value);
+
+            value = (String) jsonObj.get("apellidoPaterno");
+            oBAlumno.setApellidoPaterno(value);
+            
+            value = (String) jsonObj.get("apellidoMaterno");
+            oBAlumno.setApellidoMaterno(value);
+            
+            value = (String) jsonObj.get("dni");
+            oBAlumno.setDni(value);
+            
+            value = (String) jsonObj.get("direccion");
+            oBAlumno.setDireccion(value);
+            
+            oBAlumno.setEstado(true);
+            oBAlumno.setIdSalon(5);
+            oBAlumno.setIdExamen(5);
+            
+            int idAlumno = new DAOAlumno().registrarAlumno(oBAlumno);
+            
+            BMatricula oBMatricula = new BMatricula();
+            
+            value = (String) jsonObj.get("escuela");
+            oBMatricula.setEscuela(value);
+            value = (String) jsonObj.get("idciclo");
+            oBMatricula.setIdCiclo(Integer.parseInt(value));
+            
+            oBMatricula.setIdAlumno(idAlumno);
+            oBMatricula.setIdSecretario(1);
+            oBMatricula.setMonto(360.0);
+            
+            boolean flag=new DAOMatricula().registrarAlumno(oBMatricula);
+
+            
+
+
+            if (idAlumno!=0&&flag == true) {
+                String json1 = new Gson().toJson("Alumno matriculado!");
+                response.setContentType("application/json");
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().write(json1);
+            } else {
+                String json1 = new Gson().toJson("Error al matricular Alumno");
+                response.setContentType("application/json");
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().write(json1);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

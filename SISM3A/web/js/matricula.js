@@ -22,7 +22,7 @@ function listarTipoCobro() {
         }
     });
 }
-function RegistrarTutor() {
+function matricular() {
 
     $(document).ready(function() {
         jQuery.validator.setDefaults({
@@ -41,46 +41,69 @@ function RegistrarTutor() {
                 txtApellidoMAM: {
                     required: true
                 },
-                txtDni: {
+                txtDniAM: {
                     required: true,
                     number: true,
                     minlength: 8,
                     maxlength: 8
                 },
-                txtDireccion: {
+                txtDireccionAM: {
                     required: true
                 },
-                txtTelefono: {
+                txtTelefonoAM: {
                     required: true,
                     number: true
+                },
+                EscuelaAM: {
+                    required: function() {
+                        if ($("#EscuelaAM option[value='']")) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                },
+                tipoPagoAM: {
+                    required: function() {
+                        if ($("#tipoPagoAM option[value='']")) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
                 }
+                
             },
             messages: {
-                txtNombreT: "nombre",
-                txtApellidoP: "Apellido",
-                txtApellidoM: "Apellido",
-                txtDni: "dni 8 caracteres",
-                txtDireccion: "Direccion",
-                txtTelefono: "Telefono"
+                txtNombreAM: "nombre",
+                txtApellidoPAM: "Apellido",
+                txtApellidoMAM: "Apellido",
+                txtDniAM: "dni 8 caracteres",
+                txtDireccionAM: "Direccion",
+                txtTelefonoAM: "Telefono",
+                EscuelaAM:"Selecione",
+                tipoPagoAM:"selcione"
             }
         });
-        if ($('#registrarTutorForm').valid()) {
-            confirm("Esta Seguro Registrar Nuevo Tutor");
+        if ($('#MatriculaForm').valid()) {
+            confirm("Esta Seguro Registrar nueva Matricula");
 
-            var oTutor = new Object();
-            oTutor.nombre = $("#txtNombreT").val();
-            oTutor.apellidoPaterno = $("#txtApellidoP").val();
-            oTutor.apellidoMaterno = $("#txtApellidoM").val();
-            oTutor.dni = $("#txtDni").val();
-            oTutor.direccion = $("#txtDireccion").val();
-            oTutor.telefono = $("#txtTelefono").val();
+            var OMatricula = new Object();
+            OMatricula.nombre = $("#txtNombreAM").val();
+            OMatricula.apellidoPaterno = $("#txtApellidoPAM").val();
+            OMatricula.apellidoMaterno = $("#txtApellidoMAM").val();
+            OMatricula.dni = $("#txtDniAM").val();
+            OMatricula.direccion = $("#txtDireccionAM").val();
+            OMatricula.telefono = $("#txtTelefonoAM").val();
+            OMatricula.escuela = $("#EscuelaAM").val();
+            OMatricula.idciclo = $("#tipoPagoAM").val();
 
-            var sendData = JSON.stringify(oTutor);
+            var sendData = JSON.stringify(OMatricula);
             alert(sendData);
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                url: "SRegistrarTutor",
+                url: "SMatricula",
                 data: sendData,
                 success: function(response) {
                     alert(response);

@@ -50,17 +50,18 @@
                         <tr>
                             <td>Escuela:</td>
                             <td><select id="EscuelaAM" name="EscuelaAM">
-                                    <option>Agronomia</option>
-                                    <option>Agricola</option>
-                                    <option>Minas</option>
-                                    <option>Sistemas</option>
-                                    <option>Contabilida</option>
+                                    <option value="">-Escuela-</option>
+                                    <option value="1">Agronomia</option>
+                                    <option value="2">Agricola</option>
+                                    <option value="3">Minas</option>
+                                    <option value="4">Sistemas</option>
+                                    <option value="5">Contabilida</option>
                                 </select></td>
                         </tr>
                         <tr>
                             <td>Tipo Cobro:</td>
                             <td><select id="tipoPagoAM" name="tipoPagoAM">
-                                    <option> -Tipo Pago- </option>                                
+                                    <option value=""> -Tipo Pago- </option>                                
                                 </select><input type="button" value="listar Cobro" onclick="listarTipoCobro()"/>
                             </td>
                         </tr>
