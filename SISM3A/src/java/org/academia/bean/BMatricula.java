@@ -16,6 +16,7 @@ public class BMatricula {
     private int idSecretario;
     private Date fechaMatricula;
     private String escuela;
+    private double monto;
 
     public int getIdAlumno() {
         return idAlumno;
@@ -55,5 +56,13 @@ public class BMatricula {
 
     public void setEscuela(String escuela) {
         this.escuela = escuela;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 }
