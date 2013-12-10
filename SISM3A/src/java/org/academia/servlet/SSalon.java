@@ -15,8 +15,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.academia.bean.BSalon;
+import org.academia.bean.BSalon_Tutor;
 import org.academia.bean.BTelefono;
 import org.academia.bean.BTutor;
+import org.academia.dao.DAOSalon;
+import org.academia.dao.DAOSalon_Tutor;
 import org.academia.dao.DAOTelefono;
 import org.academia.dao.DAOTutor;
 import org.json.JSONObject;
@@ -93,7 +97,54 @@ public class SSalon extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         StringBuffer jb = new StringBuffer();
+        String line = null;
+        try {
+            BufferedReader reader = request.getReader();
+            while ((line = reader.readLine()) != null) {
+                jb.append(line);
+            }
+            //System.out.println(jb.toString());
+            String datt = String.valueOf(jb.toString());
+
+            JSONObject jsonObj = new JSONObject(datt);
+
+            BSalon oBSalon=new BSalon();
+            String value = (String) jsonObj.get("nombre");
+            oBSalon.setDenominacion(value);
+
+            value = (String) jsonObj.get("capacidad");
+            oBSalon.setCapacidad(Integer.parseInt(value));
+            oBSalon.setCantidadActual(0);
+            oBSalon.setEstado(true);
+            oBSalon.setIdSalon(12);
+            
+            int idSalon=new DAOSalon().crearSalon(oBSalon);
+            
+            BSalon_Tutor oBSalon_Tutor = new BSalon_Tutor();
+            
+            value = (String) jsonObj.get("idTutor");
+            oBSalon_Tutor.setIdTutor(Integer.parseInt(value));
+            oBSalon_Tutor.setIdSalon(idSalon);  
+            
+            boolean flag=new DAOSalon_Tutor().registrarSalonTutor(oBSalon_Tutor);
+           
+            if (flag==true) {
+                String json1 = new Gson().toJson("Salon Registrado!");
+                response.setContentType("application/json");
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().write(json1);
+            } else {
+                String json1 = new Gson().toJson("Error al registrar Salon");
+                response.setContentType("application/json");
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().write(json1);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
