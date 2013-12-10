@@ -42,7 +42,7 @@ public class DAOAlumno {
             call.setString(6, oBAlumno.getApellidoPaterno());
             call.setString(7, oBAlumno.getApellidoMaterno());
             call.setString(8, oBAlumno.getDireccion());
-            call.setBoolean(5, oBAlumno.isEstado());
+            call.setBoolean(9, oBAlumno.isEstado());
             // ejecutamos  la sentencia y si nos devuelven el valor 
             //de 1 es porque el registro de forma correcta los datos
             call.executeUpdate();
