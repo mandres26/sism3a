@@ -24,7 +24,7 @@
         <div class="contenido">
             <center>
                 <h2>REGISTRAR TUTOR</h2>
-                <form id="registrarTutorForm" method="POST" action="SRegistrarTutor">
+                <form id="registrarTutorForm">
                     <table>
                         <tr>
                             <td>Nombres :</td>
