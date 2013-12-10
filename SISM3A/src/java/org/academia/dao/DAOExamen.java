@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import org.academia.bean.BExamen;
+import org.academia.bean.BReporteExamen;
 import org.academia.bean.BUsuario;
 import org.academia.ds.DSConexion;
 
@@ -59,22 +60,55 @@ public class DAOExamen {
         return rpta;
     }
         
-        public static synchronized ArrayList<BExamen> listarExamen(){
-            ArrayList<BExamen> listaExamen= new ArrayList<BExamen>();
+        public static synchronized ArrayList<BReporteExamen> listarExamenBeca(){
+            ArrayList<BReporteExamen> listaExamen= new ArrayList<BReporteExamen>();
             Connection cn=null;
             CallableStatement cl=null;
             ResultSet rs=null;
             
             try {
-                String call= "{CALL ps_listarExamen()}";
+                String call= "{CALL ps_listarExamenBeca()}";
                 cn=DSConexion.getConectar();
                 cl=cn.prepareCall(call);
                 rs=cl.executeQuery();
                 
                 while (rs.next()) {
-                    BExamen oBExamen= new BExamen();
+                    BReporteExamen oBExamen= new BReporteExamen();
                     oBExamen.setIdExamen(rs.getInt("idExamen"));
                     oBExamen.setTipoExamen(rs.getString("tipoExamen"));
+                    oBExamen.setAlumno(rs.getString("alumno"));
+                    oBExamen.setFecha(rs.getDate("fecha"));
+                    oBExamen.setNota(rs.getInt("nota"));
+                    listaExamen.add(oBExamen);
+                }
+                DSConexion.closeCall(cl);
+                DSConexion.closeConnection(cn);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                DSConexion.closeCall(cl);
+                DSConexion.closeConnection(cn);
+            }
+            return listaExamen;
+                    
+        }
+        
+           public static synchronized ArrayList<BReporteExamen> listarExamenSeleccion(){
+            ArrayList<BReporteExamen> listaExamen= new ArrayList<BReporteExamen>();
+            Connection cn=null;
+            CallableStatement cl=null;
+            ResultSet rs=null;
+            
+            try {
+                String call= "{CALL ps_listarExamenSeleccion()}";
+                cn=DSConexion.getConectar();
+                cl=cn.prepareCall(call);
+                rs=cl.executeQuery();
+                
+                while (rs.next()) {
+                    BReporteExamen oBExamen= new BReporteExamen();
+                    oBExamen.setIdExamen(rs.getInt("idExamen"));
+                    oBExamen.setTipoExamen(rs.getString("tipoExamen"));
+                    oBExamen.setAlumno(rs.getString("alumno"));
                     oBExamen.setFecha(rs.getDate("fecha"));
                     oBExamen.setNota(rs.getInt("nota"));
                     listaExamen.add(oBExamen);
