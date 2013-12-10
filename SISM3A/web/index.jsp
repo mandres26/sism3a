@@ -25,10 +25,10 @@
         <script type="text/javascript" src="js/funcionesGenerales.js"></script>
     </head>
     <body>
-        <div style="text-align: center;border: 1px solid #20911e;width: 700px; height:55px ; margin:0 auto 0 auto;">
+        <div style="text-align: center;border: 1px solid #20911e;width: 783px; height:55px ; margin:0 auto 0 auto;">
             <center>
                 <ul id="nav">
-                    <li><a href="#" onclick=""  title="Inicio">Inicio</a></li>
+                    <li><a href="#" onclick="ref('index.jsp');" title="Inicio">Inicio</a></li>
                     <li><a href="#" onclick="ref('jsp');"  title="Matricula">Matricula</a>
                         <ul>
                             <li><a href="#" onclick="ref('.jsp');"  title="Matricular">Matricular</a></li>
@@ -42,7 +42,7 @@
                             </li>						
                         </ul>
                     </li>
-                    <li><a href="#">Ciclo Academico</a></li>
+                    <li><a href="#" onclick="ref('registrarCicloAcademico.jsp');">Ciclo Academico</a></li>
                     <li><a href="#">Salon</a>
                         <ul>
                             <li><a href="#">International</a></li>
@@ -71,6 +71,23 @@
                                 </ul>
                             </li>
                             <li><a href="#" onclick="ref('.jsp');" title="Listar Tutor">Coordinador</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Examen</a>
+                        <ul>
+                            <li><a href="#">Examen Beca</a>
+                                <ul>
+                                    <li><a href="#">Registrar Examen Beca</a></li>
+                                    <li><a href="#" onclick="ref('ListarExamenBeca.jsp');">Listar Examen de Beca</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">Examen Seleccion</a>
+                                <ul>
+                                    <li><a href="#">Registrar Examen Seleccion</a></li>
+                                    <li><a href="#" onclick="ref('ListarExamenSeleccion.jsp');">Listar Examen Seleccion</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
