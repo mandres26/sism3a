@@ -8,7 +8,9 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Types;
+import java.util.ArrayList;
 import org.academia.bean.BCicloAcademico;
+import org.academia.bean.BTutor;
 import org.academia.ds.DSConexion;
 
 /**
@@ -83,6 +85,36 @@ public class DAOCicloAcademico {
         } catch (Exception e) {
             System.out.println("Error en mostrar ciclo" + e);
             return null;
+        }
+    }
+
+    public synchronized int listarCicloA() {
+        Connection cn = null;
+        CallableStatement call = null;
+        ResultSet rs = null;
+
+        
+        try {
+            String sql = "{CALL listarCicloA()}";
+
+            cn = new DSConexion().getConectar();
+            call = cn.prepareCall(sql);
+            rs = call.executeQuery();
+            BCicloAcademico OBCicloAcad = new BCicloAcademico();
+            while (rs.next()) {
+
+                
+                OBCicloAcad.setIdCiclo(rs.getInt(1));
+               
+
+                
+            }
+
+            return OBCicloAcad.getIdCiclo();
+
+        } catch (Exception e) {
+            System.out.println("Error en listar ciclo Academico" + e);
+            return 0;
         }
     }
 
