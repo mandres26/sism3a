@@ -20,8 +20,6 @@
                         <tr>
                             <td>Nombres :</td>
                             <td><input id="txtNombreT" name="txtNombreT" type="text"/></td>
-                            <td><input id="txtApellidoP" name="txtApellidoP" type="text"/></td>
-                            <td><input id="txtApellidoM" name="txtApellidoM" type="text"/></td>
                         </tr>
                         <tr>
                             <td>Apellido Paterno:</td>
