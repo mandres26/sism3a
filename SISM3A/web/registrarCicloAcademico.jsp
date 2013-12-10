@@ -25,7 +25,7 @@
     <body>
     <center>
         <div class="divEstilo">
-            <fieldset style="width: 800px; height: 500px">
+            <fieldset style="width: 600px; height: 400px">
                 <legend>Registrar de ciclo academico</legend>
                 <form id="registrarCicloAcademicoForm">
                     <table style="width: 380px; height: 150px">
