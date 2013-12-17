@@ -28,32 +28,20 @@
         <div style="text-align: center;border: 1px solid #20911e;width: 783px; height:55px ; margin:0 auto 0 auto;">
             <center>
                 <ul id="nav">
-                    <li><a href="#" onclick="ref('index.jsp');" title="Inicio">Inicio</a></li>
+                    <li><a href="#" onclick="ref('');" title="Inicio">Inicio</a></li>
                     <li><a href="#" onclick="ref('jsp');"  title="Matricula">Matricula</a>
                         <ul>
-                            <li><a href="#" onclick="ref('.jsp');"  title="Matricular">Matricular</a></li>
-                            <li><a href="#">About Them</a></li>
-                            <li><a href="#">About You</a>
-                                <ul>
-                                    <li><a href="#">More About Us</a></li>
-                                    <li><a href="#">More About Them</a></li>
-                                    <li><a href="#">More About You</a></li>						
-                                </ul>
-                            </li>						
+                            <li><a href="#" onclick="ref('matricula.jsp');"  title="Matricular">Matricular</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="ref('registrarCicloAcademico.jsp');">Ciclo Academico</a></li>
+                    <li><a href="#" onclick="ref('');">Ciclo Academico</a>
+                        <ul>
+                            <li><a href="#" onclick="ref('registrarCicloAcademico.jsp');">Crear Ciclo Academico</a></li>                             
+                        </ul>
+                    </li>
                     <li><a href="#">Salon</a>
                         <ul>
-                            <li><a href="#">International</a></li>
-                            <li><a href="#">Corporate</a>
-                                <ul>
-                                    <li><a href="#">International</a></li>
-                                    <li><a href="#">Corporate</a></li>
-                                    <li><a href="#">American Offices</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">American Offices</a></li>						
+                            <li><a href="#" onclick="ref('crearSalon.jsp');">Crear Salon</a></li>                             
                         </ul>
                     </li>	
                     <li><a href="#" onclick="ref('');"  title="Tutores">Personal</a>
@@ -67,7 +55,7 @@
                             <li><a href="#" onclick="ref('');" title="Listar Tutor">Secretario</a>
                                 <ul>
                                     <li><a href="#" onclick="ref('crearSecretario.jsp');"  title="nuevo">Nuevo Secretario</a></li>
-                                    <li><a href="#" onclick="ref('');"  title="Listar">Lista Tutor</a></li>
+                                    <li><a href="#" onclick="ref('');"  title="Listar">Listar Scretario</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" onclick="ref('.jsp');" title="Listar Tutor">Coordinador</a></li>
