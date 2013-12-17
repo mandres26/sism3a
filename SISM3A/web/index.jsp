@@ -24,11 +24,11 @@
         <script type="text/javascript" src="js/scriptsMenu.js"></script>
         <script type="text/javascript" src="js/funcionesGenerales.js"></script>
     </head>
-    <body>
+    <body onload="ref('inicio.jsp');">
         <div style="text-align: center;border: 1px solid #20911e;width: 783px; height:55px ; margin:0 auto 0 auto;">
             <center>
                 <ul id="nav">
-                    <li><a href="#" onclick="ref('');" title="Inicio">Inicio</a></li>
+                    <li><a href="#" onclick="ref('inicio.jsp');" title="Inicio">Inicio</a></li>
                     <li><a href="#" onclick="ref('');"  title="Matricula">Matricula</a>
                         <ul>
                             <li><a href="#" onclick="ref('matricula.jsp');"  title="Matricular">Matricular</a></li>
@@ -81,10 +81,11 @@
                 </ul>
             </center>  
         </div>
+
         <div id="cuerpo">
             <center>
                 <iframe id="frame" frameborder="1px solid black" src="" width="800" height="520">
-
+                
                 </iframe>
             </center>
         </div>
