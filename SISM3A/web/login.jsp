@@ -14,7 +14,7 @@
     <body>
         <div class="contenido">
             <center>
-                <fieldset>
+                <fieldset style="width: 300px">
                     <legend>Datos Usuario</legend>
                     <form action="SLogin" method="post">
                         <table border="0">

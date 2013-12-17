@@ -12,9 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Mensaje</h1>
-        <%= request.getParameter("men")%>
-        <a href="index.jsp">Volver al inicio</a>
-        <h1>Mensaje</h1>
-    </body>
+    <center>
+        <div>
+            <h1>Error de login</h1>
+            <%= request.getParameter("men")%>
+            <p>=============================</p>
+            <a href="login.jsp">Reintentar</a>
+            <p>=============================</p>            
+            <h4>¡¡¡Tu usuario y/o password es incorrecto!!!</h4>
+        </div>
+    </center>
+</body>
 </html>
