@@ -13,7 +13,6 @@
     </head>
     <body>
         <div style="border: 1px solid black;height: 500px; width: 780px;background-image: url(images/auno.jpg);background-size: 100% 100%;background-repeat: no-repeat">
-
         </div>
     </body>
 </html>
