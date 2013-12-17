@@ -29,7 +29,7 @@
             <center>
                 <ul id="nav">
                     <li><a href="#" onclick="ref('');" title="Inicio">Inicio</a></li>
-                    <li><a href="#" onclick="ref('jsp');"  title="Matricula">Matricula</a>
+                    <li><a href="#" onclick="ref('');"  title="Matricula">Matricula</a>
                         <ul>
                             <li><a href="#" onclick="ref('matricula.jsp');"  title="Matricular">Matricular</a></li>
                         </ul>
@@ -58,7 +58,7 @@
                                     <li><a href="#" onclick="ref('');"  title="Listar">Listar Scretario</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#" onclick="ref('.jsp');" title="Listar Tutor">Coordinador</a></li>
+                            <li><a href="#" onclick="ref('');" title="Listar Tutor">Coordinador</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Examen</a>
