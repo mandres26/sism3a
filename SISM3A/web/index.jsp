@@ -65,7 +65,7 @@
                         <ul>
                             <li><a href="#">Examen Beca</a>
                                 <ul>
-                                    <li><a href="#">Registrar Examen Beca</a></li>
+                                    <li><a href="#" onclick="ref('registrarExamen.jsp');">Registrar Examen Beca</a></li>
                                     <li><a href="#" onclick="ref('ListarExamenBeca.jsp');">Listar Examen de Beca</a></li>
                                 </ul>
                             </li>
